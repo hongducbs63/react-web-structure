@@ -8,7 +8,7 @@ interface Props {
   errorMessage: string | undefined;
 }
 
-const InputEmail = (props: Props) => {
+const Input = (props: Props) => {
   const { value, getInputMail, id, errorMessage } = props;
   if (id.includes('email')) {
     return (
@@ -55,4 +55,4 @@ const InputEmail = (props: Props) => {
   }
 };
 
-export default InputEmail;
+export default Input;

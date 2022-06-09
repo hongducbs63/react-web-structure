@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { ILoginParams, ILoginValidation } from '../../../models/auth';
 import { validateLogin, validLogin } from '../utils';
-import InputEmail from './InputEmail';
+import Input from './Input';
 
 interface Props {
   onLogin(values: ILoginParams): void;
@@ -47,18 +47,18 @@ const LoginForm = (props: Props) => {
         </div>
       )}
       <>
-        <InputEmail
+        <Input
           value={formValues.email}
           getInputMail={HandleOnChangeInputValue}
           id="email"
           errorMessage={validate?.email}
-        ></InputEmail>
-        <InputEmail
+        ></Input>
+        <Input
           value={formValues.password}
           getInputMail={HandleOnChangeInputValue}
           id="password"
           errorMessage={validate?.password}
-        ></InputEmail>
+        ></Input>
       </>
       {/* <div className="col-md-12">
         <label htmlFor="inputPassword" className="form-label">
