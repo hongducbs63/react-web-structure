@@ -1,5 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { NavLink } from 'react-router-dom';
+import { ROUTES } from '../../../configs/routes';
 import { ILoginParams, ILoginValidation } from '../../../models/auth';
 import { validateLogin, validLogin } from '../utils';
 import Input from './Input';
@@ -12,13 +14,11 @@ interface Props {
 
 const LoginForm = (props: Props) => {
   const { onLogin, loading, errorMessage } = props;
-
   const [formValues, setFormValues] = React.useState<ILoginParams>({ email: '', password: '', rememberMe: false });
   const [validate, setValidate] = React.useState<ILoginValidation>();
 
   const onSubmit = React.useCallback(() => {
     const validate = validateLogin(formValues);
-
     setValidate(validate);
 
     if (!validLogin(validate)) {
@@ -31,6 +31,7 @@ const LoginForm = (props: Props) => {
   const HandleOnChangeInputValue = (key: string, value: string) => {
     setFormValues({ ...formValues, [key]: value });
   };
+  const onClick = () => {};
   return (
     <form
       style={{ maxWidth: '560px', width: '100%' }}
@@ -60,26 +61,11 @@ const LoginForm = (props: Props) => {
           errorMessage={validate?.password}
         ></Input>
       </>
-      {/* <div className="col-md-12">
-        <label htmlFor="inputPassword" className="form-label">
-          <FormattedMessage id="password" />
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="inputPassword"
-          value={formValues.password}
-          onChange={(e) => setFormValues({ ...formValues, password: e.target.value })}
-        />
 
-        {!!validate?.password && (
-          <small className="text-danger">
-            <FormattedMessage id={validate?.password} />
-          </small>
-        )}
-      </div> */}
-
-      <div className="col-12">
+      <div
+        className="col-12 container-formcheck-btnsignin"
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+      >
         <div className="form-check">
           <input
             className="form-check-input"
@@ -93,6 +79,11 @@ const LoginForm = (props: Props) => {
             <FormattedMessage id="rememberMe" />
           </label>
         </div>
+        <div className="btn-login">
+          <NavLink to={ROUTES.register} style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+            <FormattedMessage id="register" />
+          </NavLink>
+        </div>
       </div>
 
       <div className="row justify-content-md-center" style={{ margin: '16px 0' }}>
@@ -104,7 +95,7 @@ const LoginForm = (props: Props) => {
             disabled={loading}
           >
             {loading && <div className="spinner-border spinner-border-sm text-light mr-2" role="status" />}
-            <FormattedMessage id="register" />
+            <FormattedMessage id="logIn" />
           </button>
         </div>
       </div>

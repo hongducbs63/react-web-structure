@@ -25,7 +25,6 @@ const LoginPage = () => {
     async (values: ILoginParams) => {
       setErrorMessage('');
       setLoading(true);
-
       const json = await dispatch(
         fetchThunk(API_PATHS.signIn, 'post', { email: values.email, password: values.password }),
       );

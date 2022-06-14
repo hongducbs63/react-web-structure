@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -10,7 +11,7 @@ interface Props {
 
 const Input = (props: Props) => {
   const { value, getInputMail, id, errorMessage } = props;
-  if (id.includes('email')) {
+  if (_.includes(id, 'email')) {
     return (
       <div className="col-md-12">
         <label htmlFor="inputEmail" className="form-label">
