@@ -38,3 +38,11 @@ export interface ILocationsParams {
   name: string;
   pid: number | null;
 }
+
+export interface IPostParams {
+  albumId: number;
+  id: number;
+  thumbnailUrl: string;
+  title: string;
+  url: string;
+}

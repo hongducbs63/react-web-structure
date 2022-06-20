@@ -1,0 +1,23 @@
+.container-post{
+  display: flex;
+  width: 750px;
+  margin-bottom: 10px;
+  // display: block;
+}
+
+.post-name{
+  padding: 0 6px;
+  flex: 1
+}
+
+.input-post{
+  border: none;
+  width: 100%;
+}
+.input-post:focus{
+  background: white;
+}
+.active{
+  background-color: rgb(140, 115, 115);
+  color: black;
+}
